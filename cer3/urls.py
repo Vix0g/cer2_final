@@ -17,6 +17,7 @@ Including another URLconf
 from rest_framework.routers import DefaultRouter
 from django.contrib import admin
 from django.urls import path, include
+from backend.views import pokemon_list
 
 from backend.views import *
 
@@ -30,4 +31,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('random/', CreateRandomNumber.as_view(), name='create_random_number'),
     path('admin/', admin.site.urls),
+    path('pokemon-list/', pokemon_list, name='pokemon-list'),
 ]

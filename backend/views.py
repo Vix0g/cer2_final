@@ -2,6 +2,7 @@ from rest_framework import viewsets, generics
 from backend.models import Number, Pokemon
 from backend.serializers.NumberSerializer import NumberSerializer
 from backend.serializers.PokemonSerializer import PokemonSerializer
+from django.shortcuts import render
 
 
 import random
@@ -37,6 +38,13 @@ class PokemonViewSet(viewsets.ModelViewSet):
     #     if number is not None:
     #         queryset = queryset.filter(number=number)
     #     return queryset
+
+#Codigo agregado
+
+def pokemon_list(request):
+    return render(request, 'pokemon_list.html')
+
+#-------------------
 
 class CreateRandomNumber(generics.CreateAPIView):
     serializer_class = NumberSerializer
